@@ -1,0 +1,59 @@
+
+####
+POST https://example.com/comments HTTP/1.1
+content-type: application/json
+
+{
+    "name": "sample",
+    "time": "Wed, 21 Oct 2015 18:27:50 GMT"
+}
+
+###
+
+POST http://192.168.1.69:6800/jsonrpc HTTP/1.1
+content-type: application/json
+
+#Passw0rd base64 > UGFzc3cwcmQ=
+//show No. of active/stopped/waiting tasks
+//{"jsonrpc":"2.0", "id":"qwer","method":"aria2.addUri", "params":[["http://192.168.1.69:5244/d/storage/webdav/baidu/%E6%88%91%E7%9A%84%E8%A7%86%E9%A2%91/%E7%99%BE%E5%AE%B6%E8%AE%B2%E5%9D%9B20%E5%B9%B4%E5%85%A8%E9%9B%86%EF%BC%9A2001-2020%E5%B9%B47%E6%9C%88%E5%85%A8%E9%9B%86%5B%E9%AB%98%E9%9F%B3%E8%B4%A8Mp3%E5%85%A8%E9%9B%86%5D/1.%E7%99%BE%E5%AE%B6%E8%AE%B2%E5%9D%9B2001-2013%E5%B9%B4%E5%85%A8%E9%9B%868CD(1-4).zip"]]}
+{"jsonrpc":"2.0", "id":"qwer","method":"aria2.addUri", "params":[["http://192.168.1.69:5244/d/storage/webdav/baidu/%E6%88%91%E7%9A%84%E8%A7%86%E9%A2%91/%E7%99%BE%E5%AE%B6%E8%AE%B2%E5%9D%9B20%E5%B9%B4%E5%85%A8%E9%9B%86%EF%BC%9A2001-2020%E5%B9%B47%E6%9C%88%E5%85%A8%E9%9B%86%5B%E9%AB%98%E9%9F%B3%E8%B4%A8Mp3%E5%85%A8%E9%9B%86%5D/2.%E7%99%BE%E5%AE%B6%E8%AE%B2%E5%9D%9B2001-2013%E5%B9%B4%E5%85%A8%E9%9B%868CD(5-8).zip"]]}
+
+//{"jsonrpc":"2.0", "id":"qwer","method":"aria2.getGlobalStat", "params":[]}
+
+//{"jsonrpc":"2.0", "id":"qwer","method":"aria2.tellActive", "params":[]}
+//{"jsonrpc":"2.0", "id":"qwer","method":"aria2.tellStopped", "params":["token:Passw0rd",0,10]}
+
+//remove active task w/ GID
+//{"jsonrpc":"2.0", "id":"qwer","method":"aria2.remove", "params":["token:Passw0rd",""]}
+//{"jsonrpc":"2.0", "id":"qwer","method":"aria2.pause", "params":["token:Passw0rd",""]}
+
+//{"jsonrpc":"2.0", "id":"qwer","method":"aria2.tellWaiting", "params":["token:Passw0rd",0,10]}
+//{"jsonrpc":"2.0", "id":"qwer","method":"aria2.tellStatus", "params":["token:Passw0rd",""]}
+//{"jsonrpc":"2.0", "id":"qwer","method":"aria2.getFiles", "params":["token:Passw0rd",""]}
+//
+//{"jsonrpc":"2.0", "id":"qwer","method":"aria2.purgeDownloadResult","params":["token:Passw0rd"]}
+
+//{"jsonrpc":"2.0", "id":"qwer","method":"aria2.getVersion", "params":[]}
+//{"jsonrpc":"2.0", "id":"qwer","method":"aria2.getSessionInfo", "params":[]}
+//{"jsonrpc":"2.0", "id":"qwer","method":"system.listMethods", "params":[]}
+####
+
+http://192.168.1.69:6800/jsonrpc?method=aria2.tellStatus
+
+
+###
+#/jsonrpc?method=METHOD_NAME&id=ID&params=BASE64_ENCODED_PARAMS
+
+#/jsonrpc?method=aria2.tellStatus&id=foo&params=WyIyMDg5YjA1ZWNjYTNkODI5Il0%3D
+
+#The params parameter is Base64-encoded JSON array which usually appears in params attribute in JSON-RPC request object. In the above example, the params is ["2089b05ecca3d829"], therefore:
+
+#["2089b05ecca3d829"] --(Base64)--> WyIyMDg5YjA1ZWNjYTNkODI5Il0=
+#             --(Percent Encode)--> WyIyMDg5YjA1ZWNjYTNkODI5Il0%3D
+###
+
+####
+POST https://www.piaotianwenxue.com/book/43/43545/?__cf_chl_f_tk=70.Y_O86tKWmfdbkpfrVXcOdn_sovW3oBLAMZmzrOFE-1683515519-0-gaNycGzNCtA
+content-type: application/json
+
+{"md":"cTKPH3tSORe2KqLjs9wo0P3zshc5wJQjN0YZvHMtl6Y-1683515519-0-AWHN7X48T6XGj5vPG7tN9Of3fFCPqDOvVp8l7l90_jc_cDHQNLiVb7FFutvGIucoO89jYSpWuv9aJqzF6GFKT0nVgSSxnKlzm7nb_hB38AKCnLgmYo3qQALFWZ2eySyuPykQxLSMeyylQXt1HSTE1fuL2aVlgBgX1d0-eG-2J_YPvSEo9Nux8kG10tnpECky8ymyR-c-g9XnaMIHh6BCrptL5eKUSRzS1KWKko5M-yeC4jCKQoqlTduqNHMu9EmwiEq_wnpwMSGSd_J5EGI8aSiqvMu8fizgNP2CNpW25AR5tQUnoMzQ_llJHkI0HbsP2wxnuUQtyyDO9y7llgBgha_9uHC10_s7dQupbxqE0XEzC76wMLzIsmtex4OylOP0mAAUxFt6rqvakD-M4fafUP6_v2A-uFCba_QJs7eaVT_Z-wrEFboO-TXn_MtWdZDsBWiq4BOFG_BYhuzZ7l_D1s9DTqwgnkeofii2WSdb3ALEBJ7lAKKOpa7uR3Y-RnZo1hmsJRM7-pPMjANM3r4s-kHNJRwE_4Jez2Y5x4xsM_z5d6e9Pqz6x6fiFA_SlBYfyZPCZTiZx35hpAVEPDL89ROaseQ663-4mW-WoZc2FuhzFRKwRbTbczT6b9ZMnbkQb7KQyk2pqUdWHRPn5coXtM5I4DLIxVDf5qKnuR_gyAfchW8RrBNzsqrg5e04rDznfbt7qyPhTwW2kpJ-JLOeORz71h-IG6RGenQa3kbJHi1vgqv7PSmeF03TI_F7z_y8ALuGk5hKvci265X40WMFZlRIZOeQkwAY3K5fnVKOd98sIREFaC7i6Q3pFj-cWv0UOsb3B1d6oRwNflovt_RYCFlXeVVQUwNt_TIvcY5na6b9L5X_zqMef7rKhciWGwtfrSlJ3u6XAghdJsh3MNt8nsCRhNTYOx48BDkNEbmiEHO8r6VgJYmJsOe1jUy29Vv-W10zQB_HNxnWmh6Ru7PilOR3vOjEHKipd_XeR5vT5kOfte1EHTHXVFrFx84YO07CI8dovb-kvG1ZFAU_eprLkwGGWZ5LEijBi2ASz1Dehr1-lAQZXda4RRU8coHezfNxSrRp77PNwwsA2cHVRSOHYR49U52vTI7mTVffM0gNjm9T_lkh4MHZKETC1RSMizYMT7HYHd8UvkAOJVbT5yRkwMc7J2if1Z7AH0_MajZXVuB5hfMkZRTqmNPSCCeOP03Fk4L0mRo1GGDBbRe-5y_QMMM6oYHeuMPOtD-Y6Jdvfnm2cGBTcpOsopV_gsmiADBdMuEQXq3SkYrjsWf3ro_Sh1zmNXlOAKKm9Il4YjrbD3W1UIfQ8SEEaM_SyyxdFKXfEdzGQ8Wy2v-8mKw5KrvbYLgwmwW2cPgZzmqq_obiVT-tY6SZHRmkqQgRTx6riNWoumX2WVHlyBlSSnDH1CyqOdV0Jwz5U2eZlnquEfWa4JaAyL3fEAwVxgE47DneB6M8PEFV1iFfHDWLga7PrBQDDAlEkDyDBQ0em6CnOq1xUt7XuD1HXjO0m1s-SS0TeeJ8pAoVj66XIYXCfshwBt6jdHxpvhfopog_5ZeBpdA7mLBaimpIDqtsv12w8S81BXmvnB3DwhpPVUTKzJP-H4A82SnmnGrQmUSZ9N_thynzEMobm0AFIOHDTSBcQBr6sF0NRODhzuglj_fYBBHYWQJe-OE37zzMmCy2YoEYo4QHsHiPi70sg4oVlOycOyT20YsRzN3vvBNuY5F80k3Xo4Q32lV-6CtW6_1Xk3D4kK_PMY8gX30LQxiSOJoM-pmrk5_xyHKiqtY7yI8wzIzbbYp8Ok91v3_qYGq1WZ7BV4_vCnTk1C2277tNy12yAn6eLKzxFeStIJB8HIXbva3X61-eHKekTl_0YVSzRfwFHkWkQydJta8PIAP8HEPUmXY1vc4PnEUuIPmoNMt56R3eyDU7Amuf5ir_NRhetRmm0p-emL-EuNtUnEVCC4XPZ-vG9M09CvnyJzHJPARgQDwsNhGkg3pCFfDZD4fucnCjWtqa7Lo2ffgQmiU0vgo0csxpjtmSC4yby6AAUFVP91HQm6uc9FZ2GivTuDj5IHAgQIUKtyOhwQTtYExiMh1sn_tMzadBeApWAokeRhaNa8Hh7zzOEVTrLNZKYUnY3TqPSjYSkh0-yr8gJ2wke7gfoTKu4zJhjsx7zTAyjKacbOJJGKTdl2mQZwuz9RTVJopwki1HKNn0Pn8ReqvDc1CEGQpPomsFVqAJ6rVQiZOJpfF2Mah2bsdggcrev7SnrlLkEBf2Nf2C9fxJBHSVdrbGNyTBtjj0zsGjGUJ0pfWyTctbviEnnrann1LS8IXBlT-LbsTldgt_mM0EA8hz5fY8ENiLCQMsZaX4NAFu-HHgGoAR7UKMTAhcSjIgSrPZeKhPb22_YQOjV36VtuED6sQE-do1IFNnB_3QM-rLIA6iSA-RSNillytlkWG1EvBB8dt0cacZPKH630NdijR9SrUOuzyDCV5x_WDTjFBz73CfydRu3ZoZgk84-89k3aKH0QmWWQ-5ySE1HkVqrETjGADUz7X66Etj6lGymRUP9BrG1ftjzRWNNTXTt0OKr1ALg3aotKkuxqQ3hWUS4uCPgELch9RyRgE3RfqBGsR0wKW5QVCvfP1N4s8rZ3xt6fxASgkuuHB-nQ84MRHvifZF6RD4W7h4iswkjI9d4gi5ZaCp-QJNrJw5PFM"}
